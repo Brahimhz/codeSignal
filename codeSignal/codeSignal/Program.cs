@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace codeSignal
 {
@@ -8,12 +12,30 @@ namespace codeSignal
         {
             //Console.WriteLine(isLucky(261534));
 
-           /* foreach(int item in (sortByHeight(new int[] { -1, 150, 190, 170, -1, -1, 160, 180 })))
-                Console.WriteLine(item);*/
+            /* foreach(int item in (sortByHeight(new int[] { -1, 150, 190, 170, -1, -1, 160, 180 })))
+                 Console.WriteLine(item);*/
 
-
+            /* Console.WriteLine(reverseInParentheses("foo(bar)baz(blim)")); */
 
             Console.ReadLine();
+        }
+
+        private static String reverseInParentheses(string inputString)
+        {
+
+            while (inputString.Contains("("))
+            {
+                int i = inputString.LastIndexOf("(");
+                var s = new string(inputString.Skip(i + 1).TakeWhile(x => x != ')').Reverse().ToArray());
+                var t = "(" + new string(s.Reverse().ToArray()) + ")";
+                Console.WriteLine("S = {0}",s);
+                Console.WriteLine("T = {0}",t);
+                inputString = inputString.Replace(t, s);
+                Console.WriteLine("inputString = {0}", inputString);
+
+            }
+
+            return inputString;
         }
 
         private static int[] sortByHeight(int[] a)
