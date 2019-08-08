@@ -20,6 +20,22 @@ namespace codeSignal
             Console.ReadLine();
         }
 
+        int[] alternatingSums(int[] a)
+        {
+
+            int someTeam1 = 0, someTeam2 = 0;
+
+            for (int i = 0; i < a.Length; i++)
+                if (i % 2 == 0)
+                    someTeam1 += a[i];
+                else
+                    someTeam2 += a[i];
+
+
+            return new int[] { someTeam1, someTeam2 };
+
+        }
+
         private static String reverseInParentheses(string inputString)
         {
 
