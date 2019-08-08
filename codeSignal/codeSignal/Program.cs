@@ -20,7 +20,27 @@ namespace codeSignal
             Console.ReadLine();
         }
 
-        int[] alternatingSums(int[] a)
+        private static string[] addBorder(string[] picture)
+        {
+
+            string[] pictureWithBorder = new string[picture.Length + 2];
+            pictureWithBorder[0] = "";
+            pictureWithBorder[(picture.Length + 2) - 1] = "";
+
+            for (int i = 0; i < (picture[0].Length + 2); i++)
+            {
+                pictureWithBorder[0] += "*";
+                pictureWithBorder[(picture.Length + 2) - 1] += "*";
+            }
+
+            for (int j = 0; j < picture.Length; j++)
+                pictureWithBorder[j + 1] = "*" + picture[j] + "*";
+
+
+            return pictureWithBorder;
+
+        }
+        private static int[] alternatingSums(int[] a)
         {
 
             int someTeam1 = 0, someTeam2 = 0;
