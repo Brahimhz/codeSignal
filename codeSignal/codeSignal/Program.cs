@@ -17,15 +17,123 @@ namespace codeSignal
 
             /* Console.WriteLine(reverseInParentheses("foo(bar)baz(blim)")); */
 
+            //Console.WriteLine(areSimilar( new int[] { 2 , 3 , 1 }, new int[] { 1 , 3 , 2 }));
+            // Console.WriteLine(areSimilarWithouStupidity( new int[] { 2 , 3 , 1 }, new int[] { 1 , 3 , 2 }));
+
+            //Console.WriteLine(arrayChange(new int[] { 1 , 1 ,1 }));
+
+            Console.WriteLine(palindromeRearranging("abbaba"));
+
+
             Console.ReadLine();
+        }
+
+        private static bool palindromeRearranging(string inputString)
+        {
+            if(inputString.Length<2)
+                return true;
+            else
+            {
+                Dictionary<char, int> carc = new Dictionary<char, int>();
+
+                for( int i=0 ; i < inputString.Length ; i++ )
+                {
+                    try
+                    {
+                        carc.Add(inputString[i], 1);
+                    }
+                    catch (ArgumentException)
+                    {
+                        carc[inputString[i]]++;
+                    }
+                }
+
+                int cpt = 0;
+
+                foreach (KeyValuePair<char, int> value in carc)
+                    if (value.Value == 1)
+                        cpt++;
+                    else
+                        if (value.Value % 2 != 0 || (value.Value % 2 != 0 && carc.Count > 1 && cpt > 1))
+                        cpt++;
+              
+                    if( cpt > 1 )
+                        return false;
+                    else
+                         return true;
+
+            }
+
+        }
+
+        private static int arrayChange(int[] inputArray)
+        {
+            int cpt=0;
+
+            for (int i = 1; i < inputArray.Length; i++)
+                while (inputArray[i-1] >= inputArray[i] )
+                {
+                    inputArray[i]++;
+                    cpt++;
+                }
+                   
+            return cpt;
+        }
+
+        private static bool areSimilarWithouStupidity(int[] a, int[] b)
+        {
+            int counter = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (!b.Contains(a[i]))
+                    return false;
+
+                if (a[i] != b[i])
+                    counter++;
+            }
+
+            if (!a.OrderBy(x => x).SequenceEqual(b.OrderBy(x => x)))
+                return false;
+
+            return counter == 0 || (counter / 2 == 1 && counter % 2 == 0);
+        }
+
+        private static bool areSimilar(int[] a, int[] b)
+        {
+            if (Enumerable.SequenceEqual(a, b))
+                return true;
+
+                for (int i = 0; i < ( b.Length - 1 ); i++)
+                    {
+
+                        if (!Array.Exists(b, x => x == a[0]))
+                             return false;
+
+                        for(int j=0; j < b.Length; j++ )
+                         {
+                              if( j > i)
+                                {
+                                    if (Enumerable.SequenceEqual(a, (b.TakeWhile(x => Array.IndexOf(b, x) < i)).Concat(Enumerable.Concat(new int[] { b[j] }, (b.Skip(i + 1).TakeWhile(x => Array.IndexOf(b, x) < j)).Concat(Enumerable.Concat(new int[] { b[i] }, (b.Skip(j + 1).TakeWhile(x => Array.IndexOf(b, x) < b.Length))))))))
+                                         return true;
+                                }
+                              if(j < i)
+                                {
+                                    if (Enumerable.SequenceEqual(a, ( (b.TakeWhile(x => Array.IndexOf(b, x) < j)).Concat(Enumerable.Concat(new int[] { b[i] }, (b.Skip(j + 1).TakeWhile(x => Array.IndexOf(b, x) < i)).Concat(Enumerable.Concat(new int[] { b[j] }, (b.Skip(i + 1).TakeWhile(x => Array.IndexOf(b, x) < b.Length)) ))))) ))
+                                        return true;
+                                }
+
+                         }
+                     }
+
+
+            return false;
         }
 
         private static string[] addBorder(string[] picture)
         {
 
             string[] pictureWithBorder = new string[picture.Length + 2];
-            pictureWithBorder[0] = "";
-            pictureWithBorder[(picture.Length + 2) - 1] = "";
+           
 
             for (int i = 0; i < (picture[0].Length + 2); i++)
             {
