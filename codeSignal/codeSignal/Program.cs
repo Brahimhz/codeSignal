@@ -35,7 +35,7 @@ namespace codeSignal
                     Console.WriteLine(item);
                     */
 
-            foreach(int[] array in ( minesweeper( new bool[][] {
+            /*foreach(int[] array in ( minesweeper( new bool[][] {
                                                                     new bool[] { true , false , false },
                                                                     new bool[] { false , true , false },
                                                                     new bool[] { false , false , false }
@@ -45,10 +45,18 @@ namespace codeSignal
                     Console.Write(item);
 
                 Console.WriteLine();
-            }
+            }*/
 
+            foreach (int item in ( arrayReplace( new int[] { 1 , 2 , 1 } , 1 , 3 ) ) )
+                Console.Write(item);
 
             Console.ReadLine();
+        }
+
+        private static int[] arrayReplace(int[] inputArray, int elemToReplace, int substitutionElem)
+        {
+            return inputArray.Select(p => p == elemToReplace ? substitutionElem : p ).ToArray();
+
         }
 
         private static int[][] minesweeper(bool[][] matrix)
