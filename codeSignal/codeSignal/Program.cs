@@ -47,10 +47,17 @@ namespace codeSignal
                 Console.WriteLine();
             }*/
 
-            foreach (int item in ( arrayReplace( new int[] { 1 , 2 , 1 } , 1 , 3 ) ) )
-                Console.Write(item);
+            /*foreach (int item in ( arrayReplace( new int[] { 1 , 2 , 1 } , 1 , 3 ) ) )
+                Console.Write(item);*/
+
+           // Console.WriteLine(evenDigitsOnly(248322));
 
             Console.ReadLine();
+        }
+
+        private static bool evenDigitsOnly(int n)
+        {
+            return !Array.Exists( n.ToString().Select(p => Convert.ToInt32(p)).ToArray() , p => p%2 !=0 );
         }
 
         private static int[] arrayReplace(int[] inputArray, int elemToReplace, int substitutionElem)
