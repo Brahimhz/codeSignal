@@ -28,9 +28,40 @@ namespace codeSignal
 
             //Console.WriteLine(isIPv4Address("0.0.0.0.0"));
 
-            Console.WriteLine(avoidObstacles(new int[] { 5, 3, 6, 7, 9 }));
+            //Console.WriteLine(avoidObstacles(new int[] { 5, 3, 6, 7, 9 }));
+
+            /*foreach (int[] array in (boxBlur(new int[][] { new int[] { 7 , 4 , 0 , 1 }, new int[] { 5 , 6 , 2 , 2 }, new int[] { 6 , 10 , 7 , 8  } , new int[] { 1 , 4 , 2 , 0 } })))
+                foreach( int item in array )
+                    Console.WriteLine(item);
+                    */
+
+
 
             Console.ReadLine();
+        }
+
+        private static int[][] boxBlur(int[][] image)
+        {
+            int[][] result = new int[(image.Length-3)+1][];
+
+            for( int iResult = 0 ; iResult < result.Length ; iResult++ )
+            {
+                result[iResult] = new int[(image[iResult].Length - 3) + 1];
+
+                for (int jResult = 0; jResult < result[iResult].Length; jResult++)
+                {
+                    int sum = 0 ;
+                    for (int iImage = 0 + iResult; iImage < iResult + 3; iImage++)
+                        for (int jImage = 0 + jResult; jImage < jResult + 3; jImage++)
+                            sum += image[iImage][jImage];
+
+                    result[iResult][jResult] = sum / 9;
+                }
+            }
+
+
+
+            return result;
         }
 
         private static int avoidObstacles(int[] inputArray)
@@ -42,7 +73,7 @@ namespace codeSignal
             return cpt;
         }
 
-            private static bool isIPv4Address(string inputString)
+        private static bool isIPv4Address(string inputString)
         {
             foreach (string item in inputString.Split('.'))
                 if ( !( int.TryParse(item, out int test) ) || inputString.Split('.').Count(p => p.Equals("0")) == 4 || (test < 0 || test > 255) || inputString.Split('.').Length != 4 )
@@ -50,8 +81,6 @@ namespace codeSignal
 
             return true;
         }
-
-
 
         private static bool areEquallyStrong(int yourLeft, int yourRight, int friendsLeft, int friendsRight)
         {
