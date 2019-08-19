@@ -35,9 +35,88 @@ namespace codeSignal
                     Console.WriteLine(item);
                     */
 
+            foreach(int[] array in ( minesweeper( new bool[][] {
+                                                                    new bool[] { true , false , false },
+                                                                    new bool[] { false , true , false },
+                                                                    new bool[] { false , false , false }
+                                                                }) ) )
+            {
+                foreach (int item in array)
+                    Console.Write(item);
+
+                Console.WriteLine();
+            }
 
 
             Console.ReadLine();
+        }
+
+        private static int[][] minesweeper(bool[][] matrix)
+        {
+            int[][] mine = new int[matrix.Length][];
+
+            for( int i = 0 ; i < matrix.Length ; i++ )
+            {
+                mine[i] = new int[matrix[i].Length] ;
+                for (int j = 0; j < matrix[i].Length ; j++ )
+                {
+                    int sum = 0;
+
+                    try
+                    {
+                        if (matrix[i - 1][j])
+                            sum++;
+                    }
+                    catch (System.IndexOutOfRangeException e) { }
+                    try
+                    {
+                        if (matrix[i][j - 1])
+                            sum++;
+                    }
+                    catch (System.IndexOutOfRangeException e) { }
+                    try
+                    {
+                        if (matrix[i - 1][j - 1])
+                            sum++;
+                    }
+                    catch (System.IndexOutOfRangeException e) { }
+                    try
+                    {
+                        if (matrix[i - 1][j + 1])
+                            sum++;
+                    }
+                    catch (System.IndexOutOfRangeException e) { }
+                    try
+                    {
+                        if (matrix[i +1 ][j - 1])
+                            sum++;
+                    }
+                    catch (System.IndexOutOfRangeException e) { }
+                    try
+                    {
+                        if (matrix[i + 1][j])
+                            sum++;
+                    }
+                    catch (System.IndexOutOfRangeException e) { }
+                    try
+                    {
+                        if (matrix[i][j + 1])
+                            sum++;
+                    }
+                    catch (System.IndexOutOfRangeException e) { }
+                    try
+                    {
+                        if (matrix[i + 1][j + 1])
+                            sum++;
+                    }
+                    catch (System.IndexOutOfRangeException e) { }
+
+                    mine[i][j] = sum ;
+                }
+
+            }
+
+            return mine;
         }
 
         private static int[][] boxBlur(int[][] image)
