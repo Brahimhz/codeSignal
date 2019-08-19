@@ -22,10 +22,29 @@ namespace codeSignal
 
             //Console.WriteLine(arrayChange(new int[] { 1 , 1 ,1 }));
 
-            Console.WriteLine(palindromeRearranging("abbaba"));
+            // Console.WriteLine(palindromeRearranging("abbaba"));
 
+            //Console.WriteLine(areEquallyStrong( 15 , 10 , 10 , 15 ));
+
+            Console.WriteLine(isIPv4Address("0.0.0.0.0"));
 
             Console.ReadLine();
+        }
+
+        private static bool isIPv4Address(string inputString)
+        {
+            foreach (string item in inputString.Split('.'))
+                if ( !( int.TryParse(item, out int test) ) || inputString.Split('.').Count(p => p.Equals("0")) == 4 || (test < 0 || test > 255) || inputString.Split('.').Length != 4 )
+                     return false;
+
+            return true;
+        }
+
+
+
+        private static bool areEquallyStrong(int yourLeft, int yourRight, int friendsLeft, int friendsRight)
+        {
+            return (yourLeft == friendsLeft && yourRight == friendsRight) || (friendsLeft == yourRight && friendsRight == yourLeft);
         }
 
         private static bool palindromeRearranging(string inputString)
