@@ -55,9 +55,23 @@ namespace codeSignal
 
             //Console.WriteLine(variableName("__qsd1klQK1S1LD1"));
 
-            Console.WriteLine(alphabeticShift("crazy"));
+            //Console.WriteLine(alphabeticShift("crazy"));
+
+            //Console.WriteLine(chessBoardCellColor("A1","A2"));
+
+
 
             Console.ReadLine();
+        }
+
+        private static bool chessBoardCellColor(string cell1, string cell2)
+        {
+            bool cell1B = ((Convert.ToInt32(cell1[0]) - 64) % 2 != 0 && ((Convert.ToInt32(cell1[1])) % 2 != 0)) || ((Convert.ToInt32(cell1[0]) - 64) % 2 == 0 && ((Convert.ToInt32(cell1[1])) % 2 == 0)),
+                 cell2B = ((Convert.ToInt32(cell2[0]) - 64) % 2 != 0 && ((Convert.ToInt32(cell2[1])) % 2 != 0)) || ((Convert.ToInt32(cell2[0]) - 64) % 2 == 0 && ((Convert.ToInt32(cell2[1])) % 2 == 0)),
+                 cell1W = ((Convert.ToInt32(cell1[0]) - 64) % 2 == 0 && ((Convert.ToInt32(cell1[1])) % 2 != 0)) || ((Convert.ToInt32(cell1[0]) - 64) % 2 != 0 && ((Convert.ToInt32(cell1[1])) % 2 == 0)),
+                 cell2W = ((Convert.ToInt32(cell2[0]) - 64) % 2 == 0 && ((Convert.ToInt32(cell2[1])) % 2 != 0)) || ((Convert.ToInt32(cell2[0]) - 64) % 2 != 0 && ((Convert.ToInt32(cell2[1])) % 2 == 0));
+
+            return (cell1B && cell2B) || ( cell1W && cell2W );
         }
 
         private static string alphabeticShift(string inputString)
