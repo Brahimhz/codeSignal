@@ -55,7 +55,14 @@ namespace codeSignal
 
             //Console.WriteLine(variableName("__qsd1klQK1S1LD1"));
 
+            Console.WriteLine(alphabeticShift("crazy"));
+
             Console.ReadLine();
+        }
+
+        private static string alphabeticShift(string inputString)
+        {
+                return new String ((inputString.ToCharArray().Select( p => (Convert.ToInt32(p) == 122) ? Convert.ToChar(97) : Convert.ToChar(Convert.ToInt32(p)+1) ).ToArray()));
         }
 
         private static bool variableName(string name)
