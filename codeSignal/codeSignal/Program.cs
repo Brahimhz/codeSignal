@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace codeSignal
 {
@@ -50,9 +51,16 @@ namespace codeSignal
             /*foreach (int item in ( arrayReplace( new int[] { 1 , 2 , 1 } , 1 , 3 ) ) )
                 Console.Write(item);*/
 
-           // Console.WriteLine(evenDigitsOnly(248322));
+            // Console.WriteLine(evenDigitsOnly(248322));
+
+            //Console.WriteLine(variableName("__qsd1klQK1S1LD1"));
 
             Console.ReadLine();
+        }
+
+        private static bool variableName(string name)
+        {
+            return new Regex("^[a-zA-Z_]{1,20}[a-zA-Z0-9_]{1,20}$").IsMatch(name);
         }
 
         private static bool evenDigitsOnly(int n)
