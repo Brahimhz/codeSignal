@@ -59,9 +59,29 @@ namespace codeSignal
 
             //Console.WriteLine(chessBoardCellColor("A1","A2"));
 
+            //Console.WriteLine(circleOfNumbers(20,18));
+
+           // Console.WriteLine(depositProfit(100,20,170));
+
 
 
             Console.ReadLine();
+        }
+
+        private static int depositProfit(int deposit, int rate, int threshold)
+        {
+            //(deposit > threshold) ? ref return 0 : rreturn 1+( depositProfit( deposit + ((deposit*rate)/100) ,rate,threshold) ) ; 
+
+           if (deposit >= threshold)
+                return 0;
+            else
+                return 1 + (depositProfit(deposit + ((deposit * rate) / 100), rate, threshold));
+
+        }
+
+        private static int circleOfNumbers(int n, int firstNumber)
+        {
+            return ( (firstNumber+(n/2)) >= n ) ? (firstNumber + (n / 2)) - n : (firstNumber + (n / 2));
         }
 
         private static bool chessBoardCellColor(string cell1, string cell2)
