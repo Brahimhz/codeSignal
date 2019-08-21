@@ -61,11 +61,19 @@ namespace codeSignal
 
             //Console.WriteLine(circleOfNumbers(20,18));
 
-           // Console.WriteLine(depositProfit(100,20,170));
+            // Console.WriteLine(depositProfit(100,20,170));
+
+            Console.WriteLine(absoluteValuesSumMinimization(new int[] { -1000000, -10000, -10000, -1000, -100, -10, -1, 0, 1, 10, 100, 1000, 10000, 100000, 1000000 }));
 
 
 
             Console.ReadLine();
+        }
+
+        private static int absoluteValuesSumMinimization(int[] a)
+        {
+            if ((a.Length % 2) != 0) return a[(a.Length/2)];
+                                else return a[(a.Length / 2)-1];
         }
 
         private static int depositProfit(int deposit, int rate, int threshold)
