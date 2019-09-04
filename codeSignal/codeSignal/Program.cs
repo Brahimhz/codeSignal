@@ -70,9 +70,24 @@ namespace codeSignal
             /*foreach( int item in extractEachKth(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 3))
                 Console.WriteLine(item);*/
 
-            Console.WriteLine(firstDigit("dqsd5sqdd553qsd533"));
+            //Console.WriteLine(firstDigit("dqsd5sqdd553qsd533"));
+
+            Console.WriteLine(differentSymbolsNaive("qsdsqqsodjq"));
 
             Console.ReadLine();
+        }
+
+        private static int differentSymbolsNaive(string s)
+        {
+            /*Dictionary<char, int> dictionary = new Dictionary<char, int>();
+
+            for (int i = 0; i < s.Length; i++)
+                try { dictionary.Add(s[i], 1); } catch (ArgumentException) { }
+
+            return dictionary.Count;*/
+
+            return s.Distinct().Count();
+
         }
 
         private static char firstDigit(string inputString)
