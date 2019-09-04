@@ -67,10 +67,17 @@ namespace codeSignal
 
             //Console.WriteLine(stringsRearrangement(new String[] { "aba" , "bbb" , "bab" } ));
 
-            foreach( int item in extractEachKth(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 3))
-                Console.WriteLine(item);
+            /*foreach( int item in extractEachKth(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 3))
+                Console.WriteLine(item);*/
+
+            Console.WriteLine(firstDigit("dqsd5sqdd553qsd533"));
 
             Console.ReadLine();
+        }
+
+        private static char firstDigit(string inputString)
+        {
+            return inputString.First(p => new Regex("[0-9]").IsMatch(Convert.ToString(p)));
         }
 
         private static int[] extractEachKth(int[] inputArray, int k)
