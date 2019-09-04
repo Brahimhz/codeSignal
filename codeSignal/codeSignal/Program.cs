@@ -63,11 +63,91 @@ namespace codeSignal
 
             // Console.WriteLine(depositProfit(100,20,170));
 
-            Console.WriteLine(absoluteValuesSumMinimization(new int[] { -1000000, -10000, -10000, -1000, -100, -10, -1, 0, 1, 10, 100, 1000, 10000, 100000, 1000000 }));
+            //Console.WriteLine(absoluteValuesSumMinimization(new int[] { -1000000, -10000, -10000, -1000, -100, -10, -1, 0, 1, 10, 100, 1000, 10000, 100000, 1000000 }));
 
+            //Console.WriteLine(stringsRearrangement(new String[] { "aba" , "bbb" , "bab" } ));
 
+            foreach( int item in extractEachKth(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 3))
+                Console.WriteLine(item);
 
             Console.ReadLine();
+        }
+
+        private static int[] extractEachKth(int[] inputArray, int k)
+        {
+            List<int> outPutArray = new List<int>();
+            int kk = k-1;
+            for (int i = 0 ; i < inputArray.Length; i++ )
+            {
+                if (i == kk )
+                {
+                    kk += k;
+                    continue;
+                }
+                else
+                    outPutArray.Add(inputArray[i]);
+            }
+
+            return outPutArray.ToArray();
+        }
+
+        private static bool stringsRearrangement(string[] inputArray)
+        {
+            int cpt = 0;
+
+            for (int i = 0; i < inputArray.Length; i++)
+            {
+                for (int j = 0; j < inputArray.Length; j++)
+                {
+                    if (j != i)
+                    {
+                        char[] cA = inputArray[j].ToCharArray();
+
+                        foreach (char c1 in inputArray[i].ToCharArray())
+                        {
+                            string cAN = "";
+                            bool exist = false;
+                            foreach (char c2 in cA)
+                            {
+                                if (!exist)
+                                {
+                                    if (c2.Equals(c1))
+                                    {
+                                        exist = true;
+                                        continue;
+                                    }
+                                    else { cAN += c2; }
+                                }
+                                else
+                                {
+                                    cAN += c2;
+                                }
+
+                            }
+
+                            if (cAN.Length == 1)
+                            {
+                                Console.WriteLine("i={0} , j={1} , inputArray[i]={2} , inputArray[j]={3}  ", i , j , inputArray[i], inputArray[j] );
+                                cpt++;
+                            }
+
+                            cA = cAN.ToCharArray();
+                        }
+
+                       
+                    }
+
+                }
+                
+
+            }
+
+            Console.WriteLine(cpt);
+
+            if (cpt < inputArray.Length )
+                return false;
+            else
+                return true;
         }
 
         private static int absoluteValuesSumMinimization(int[] a)
