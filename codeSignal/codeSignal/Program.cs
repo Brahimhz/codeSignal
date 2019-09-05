@@ -76,10 +76,33 @@ namespace codeSignal
 
             /*Console.WriteLine(arrayMaxConsecutiveSum( new int[] { 2 ,3 , 5 , 1 , 6 } , 2 ));*/
 
-            Console.WriteLine(growingPlant(100,10,910));
+            /*Console.WriteLine(growingPlant(100,10,910));*/
+
+            Console.WriteLine(knapsackLight(15,2,20,4,9));
 
             Console.ReadLine();
         }
+
+        private static int knapsackLight(int value1, int weight1, int value2, int weight2, int maxW)
+        {
+            if (weight1 > maxW && weight2 > maxW)
+                return 0;
+            else
+                if ((weight1 + weight2) <= maxW)
+                    return value1 + value2;
+                else
+                    if (value1 > value2)
+                        if( weight1 <= maxW )
+                            return value1;
+                        else
+                            return value2;
+                    else
+                        if( weight2 <= maxW )
+                            return value2;
+                        else
+                            return value1;
+
+}
 
         private static int growingPlant(int upSpeed, int downSpeed, int desiredHeight)
         {
