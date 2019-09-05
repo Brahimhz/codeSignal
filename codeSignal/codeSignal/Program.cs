@@ -78,9 +78,16 @@ namespace codeSignal
 
             /*Console.WriteLine(growingPlant(100,10,910));*/
 
-            Console.WriteLine(knapsackLight(15,2,20,4,9));
+            /*Console.WriteLine(knapsackLight(15,2,20,4,9));*/
+
+            Console.WriteLine(longestDigitsPrefix("aa1"));
 
             Console.ReadLine();
+        }
+
+        private static string longestDigitsPrefix(string inputString)
+        {
+           return String.Concat(inputString.TakeWhile(p => new Regex("[0-9]").IsMatch(Convert.ToString(p))));
         }
 
         private static int knapsackLight(int value1, int weight1, int value2, int weight2, int maxW)
