@@ -72,9 +72,44 @@ namespace codeSignal
 
             //Console.WriteLine(firstDigit("dqsd5sqdd553qsd533"));
 
-            Console.WriteLine(differentSymbolsNaive("qsdsqqsodjq"));
+            /*Console.WriteLine(differentSymbolsNaive("qsdsqqsodjq"));*/
+
+            /*Console.WriteLine(arrayMaxConsecutiveSum( new int[] { 2 ,3 , 5 , 1 , 6 } , 2 ));*/
+
+            Console.WriteLine(growingPlant(100,10,910));
 
             Console.ReadLine();
+        }
+
+        private static int growingPlant(int upSpeed, int downSpeed, int desiredHeight)
+        {
+            if (downSpeed > desiredHeight)
+                return 1;
+
+            int cpt = 0, height = downSpeed;
+            while(height<desiredHeight)
+            {
+                height += (upSpeed - downSpeed);
+                Console.WriteLine(height);
+                cpt++;
+            }
+            return cpt;
+        }
+
+        private static int arrayMaxConsecutiveSum(int[] inputArray, int k)
+        {
+            int max = 0;
+
+            for(int i=0 ; i < inputArray.Length-k; i++ )
+            {
+                int sum = 0;
+                for (int j = i; j < i + k; j++)
+                    sum += inputArray[j];
+                if (sum > max)
+                    max = sum;
+            }
+
+            return max;
         }
 
         private static int differentSymbolsNaive(string s)
