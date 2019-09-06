@@ -80,9 +80,29 @@ namespace codeSignal
 
             /*Console.WriteLine(knapsackLight(15,2,20,4,9));*/
 
-            Console.WriteLine(longestDigitsPrefix("aa1"));
+            /*Console.WriteLine(longestDigitsPrefix("aa1"));*/
+
+            Console.WriteLine(digitDegree(91));
 
             Console.ReadLine();
+        }
+
+        private static int digitDegree(int n)
+        {
+            int cpt = 0;
+            while ( ( n / 10 ) > 0 )
+            {
+                int changeN = 0;
+                while ((n / 10) > 0)
+                {
+                    changeN += n % 10 ;
+                    n = n / 10 ;
+                }
+                n = changeN+n;
+                cpt++;
+            }
+
+            return cpt;
         }
 
         private static string longestDigitsPrefix(string inputString)
