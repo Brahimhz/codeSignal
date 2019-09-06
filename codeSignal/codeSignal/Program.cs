@@ -82,9 +82,16 @@ namespace codeSignal
 
             /*Console.WriteLine(longestDigitsPrefix("aa1"));*/
 
-            Console.WriteLine(digitDegree(91));
+            /*Console.WriteLine(digitDegree(91));*/
+
+            Console.WriteLine(bishopAndPawn("h1","h3"));
 
             Console.ReadLine();
+        }
+
+        private static bool bishopAndPawn(string bishop, string pawn)
+        {
+            return ( Math.Abs( Convert.ToInt32( bishop[0] ) - Convert.ToInt32( pawn[0] ) ) == Math.Abs(Convert.ToInt32(bishop[1]) - Convert.ToInt32(pawn[1] ) ) ) ;
         }
 
         private static int digitDegree(int n)
