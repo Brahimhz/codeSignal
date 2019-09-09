@@ -86,9 +86,16 @@ namespace codeSignal
 
             /*Console.WriteLine(bishopAndPawn("h1","h3"));*/
 
-            Console.WriteLine(isBeautifulString("bbbaacdafe"));
+            /*Console.WriteLine(isBeautifulString("bbbaacdafe"));*/
+
+            Console.WriteLine(findEmailDomain("prettyandsimple@example.com"));
 
             Console.ReadLine();
+        }
+
+        private static string findEmailDomain(string address)
+        {
+            return address.Substring(address.LastIndexOf("@")+1);
         }
 
         private static bool isBeautifulString(string inputString)
