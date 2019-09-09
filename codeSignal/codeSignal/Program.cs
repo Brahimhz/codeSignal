@@ -84,9 +84,37 @@ namespace codeSignal
 
             /*Console.WriteLine(digitDegree(91));*/
 
-            Console.WriteLine(bishopAndPawn("h1","h3"));
+            /*Console.WriteLine(bishopAndPawn("h1","h3"));*/
+
+            Console.WriteLine(isBeautifulString("bbbaacdafe"));
 
             Console.ReadLine();
+        }
+
+        private static bool isBeautifulString(string inputString)
+        {
+            Dictionary<char, int> dictionary = new Dictionary<char, int>();
+            foreach( char item in inputString )
+                try
+                {
+                    dictionary.Add(item, 1);
+                }
+                catch (ArgumentException)
+                {
+                    dictionary[item]++;
+                }
+
+            List<KeyValuePair<char, int>> list = dictionary.ToList();
+            list.Sort( ( pair1,pair2 ) => pair1.Key.CompareTo( pair2.Key ) );
+
+            if (!list[0].Key.Equals('a'))
+                return false;
+            else
+                for (int i = 0; i < list.Count - 1; i++)
+                    if (list[i + 1].Value > list[i].Value || Math.Abs(list[i+1].Key- list[i].Key) != 1 )
+                        return false;
+
+            return true;
         }
 
         private static bool bishopAndPawn(string bishop, string pawn)
