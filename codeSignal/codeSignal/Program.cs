@@ -90,9 +90,30 @@ namespace codeSignal
 
             /*Console.WriteLine(findEmailDomain("prettyandsimple@example.com"));*/
 
-            Console.WriteLine(buildPalindrome("abcdc"));
+            /*Console.WriteLine(buildPalindrome("abcdc"));*/
+
+            Console.WriteLine(electionsWinners(new int[] { 1, 3, 3, 1, 1 } , 0 ));
 
             Console.ReadLine();
+        }
+
+        private static int electionsWinners(int[] votes, int k)
+        {
+            int cpt = 0,
+            max = votes.Max(),
+            maxIndex = votes.ToList().IndexOf(max);
+            if (k == 0) cpt = 1;
+            for (int i = 0; i < votes.Length; i++)
+            {
+                if ((votes[i] == max) && (i != maxIndex ) && k == 0)
+                    return 0;
+
+                if ((votes[i] + k) > max)
+                    cpt++;
+            }
+
+            return cpt;
+
         }
 
         private static string buildPalindrome(string st)
