@@ -88,9 +88,29 @@ namespace codeSignal
 
             /*Console.WriteLine(isBeautifulString("bbbaacdafe"));*/
 
-            Console.WriteLine(findEmailDomain("prettyandsimple@example.com"));
+            /*Console.WriteLine(findEmailDomain("prettyandsimple@example.com"));*/
+
+            Console.WriteLine(buildPalindrome("abcdc"));
 
             Console.ReadLine();
+        }
+
+        private static string buildPalindrome(string st)
+        {
+            string returnString="";
+            for (int i = 0; i < st.Length; i++)
+            {
+                
+                if (Array.Exists((st.Substring(0, i)).ToCharArray(), p => p.Equals(st[i])))
+                {
+                    returnString = new string((st.Substring(0,i)).ToCharArray());
+                    for (int j = Array.LastIndexOf(returnString.ToCharArray(), st[i]); j != -1; j--)
+                       returnString += Convert.ToString(st[j]);
+                }
+            }
+
+            return returnString;
+
         }
 
         private static string findEmailDomain(string address)
