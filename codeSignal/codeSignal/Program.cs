@@ -98,9 +98,46 @@ namespace codeSignal
 
             /*Console.WriteLine(isDigit('/'));*/
 
-            Console.WriteLine(lineEncoding("aabbbc"));
+            /* Console.WriteLine(lineEncoding("aabbbc"));*/
+
+            Console.WriteLine(chessKnight("c2"));
 
             Console.ReadLine();
+        }
+
+        private static int chessKnight(string cell)
+        {
+            int cpt = 0;
+            if (Convert.ToInt32(cell[0]) + 2 <= 104)
+            {
+                if (Int32.Parse(cell[1].ToString()) + 1 <= 8)
+                    cpt++;
+                if (Int32.Parse(cell[1].ToString()) - 1 >= 1)
+                    cpt++;
+            }
+            if (Convert.ToInt32(cell[0]) - 2 >= 97)
+            {
+                if (Int32.Parse(cell[1].ToString()) + 1 <= 8)
+                    cpt++;
+                if (Int32.Parse(cell[1].ToString()) - 1 >= 1)
+                    cpt++;
+            }
+            if (Int32.Parse(cell[1].ToString()) + 2 <= 8)
+            {
+                if (Convert.ToInt32(cell[0]) + 1 <= 104)
+                    cpt++;
+                if (Convert.ToInt32(cell[0]) - 1 >= 97)
+                    cpt++;
+            }
+            if (Int32.Parse(cell[1].ToString()) - 2 >= 1)
+            {
+                if (Convert.ToInt32(cell[0]) + 1 <= 104)
+                    cpt++;
+                if (Convert.ToInt32(cell[0]) - 1 >= 97)
+                    cpt++;
+            }
+
+            return cpt;
         }
 
         private static string lineEncoding(string s)
