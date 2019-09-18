@@ -92,9 +92,55 @@ namespace codeSignal
 
             /*Console.WriteLine(buildPalindrome("abcdc"));*/
 
-            Console.WriteLine(electionsWinners(new int[] { 1, 3, 3, 1, 1 } , 0 ));
+            /*Console.WriteLine(electionsWinners(new int[] { 1, 3, 3, 1, 1 } , 0 ));*/
+
+            /*Console.WriteLine(isMAC48Address("00-1B-63-84-45-E6"));*/
+
+            /*Console.WriteLine(isDigit('/'));*/
+
+            Console.WriteLine(lineEncoding("aabbbc"));
 
             Console.ReadLine();
+        }
+
+        private static string lineEncoding(string s)
+        {
+            string sNew ="";
+            for (int i = 0; i < s.Length; i++)
+            {
+                int cpt = 1 , j=i+1;
+                while (j < s.Length )
+                {
+                    if (s[i].Equals(s[j]))
+                        cpt++;
+                    else
+                        break;
+                     j++;
+                }
+
+                if (cpt > 1)
+                    sNew += Convert.ToString(cpt) + s[i];
+                else
+                    sNew += s[i];
+
+                i = j-1;
+            }
+
+            return sNew;
+        }
+
+        private static bool isDigit(char symbol)
+        {
+            return new Regex("[0-9]").IsMatch(symbol.ToString());
+        }
+
+        private static bool isMAC48Address(string inputString)
+        {
+            foreach(string item in inputString.Split('-'))
+            if(! new Regex("^[a-fA-F0-9]").IsMatch(item) && item.Length != 2 )
+                    return false;
+
+            return true;
         }
 
         private static int electionsWinners(int[] votes, int k)
