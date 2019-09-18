@@ -100,9 +100,16 @@ namespace codeSignal
 
             /* Console.WriteLine(lineEncoding("aabbbc"));*/
 
-            Console.WriteLine(chessKnight("c2"));
+            /* Console.WriteLine(chessKnight("c2"));*/
+
+            Console.WriteLine(deleteDigit(10));
 
             Console.ReadLine();
+        }
+
+        private static int deleteDigit(int n)
+        {
+           return Int32.Parse(n.ToString().Select( (element , index ) => n.ToString().Remove( index , 1 ) ) .Max());
         }
 
         private static int chessKnight(string cell)
