@@ -102,9 +102,27 @@ namespace codeSignal
 
             /* Console.WriteLine(chessKnight("c2"));*/
 
-            Console.WriteLine(deleteDigit(10));
+            /*Console.WriteLine(deleteDigit(10));*/
+
+            /*Console.WriteLine(longestWord("Ready, steady, go!"));*/
+
+            Console.WriteLine(validTime("13:60"));
 
             Console.ReadLine();
+        }
+
+        private static bool validTime(string time)
+        {
+            if (int.Parse(time.Split(":")[0]) >= 0 && int.Parse(time.Split(":")[0]) < 24)
+                if (int.Parse(time.Split(":")[0]) >= 0 && int.Parse(time.Split(":")[1]) < 60)
+                    return true;
+
+            return false;
+        }
+
+        private static string longestWord(string text)
+        {
+            return Regex.Matches(text,@"[a-zA-Z]+").Cast<Match>().Select(p=>p.Value).OrderByDescending( p => p.Length).First();
         }
 
         private static int deleteDigit(int n)
