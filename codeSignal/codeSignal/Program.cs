@@ -106,9 +106,23 @@ namespace codeSignal
 
             /*Console.WriteLine(longestWord("Ready, steady, go!"));*/
 
-            Console.WriteLine(validTime("13:60"));
+            /*Console.WriteLine(validTime("13:60"));*/
+
+            /*Console.WriteLine(sumUpNumbers("there are some (12) digits 5566 in this 770 string 239"));*/
+
+            Console.WriteLine(differentSquares());
 
             Console.ReadLine();
+        }
+
+        private static int differentSquares(int[][] matrix)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static int sumUpNumbers(string inputString)
+        {
+            return Regex.Matches(inputString, @"[0-9]+").Cast<Match>().Select(p => int.Parse(p.Value)).Sum();
         }
 
         private static bool validTime(string time)
