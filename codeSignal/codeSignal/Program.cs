@@ -15,9 +15,9 @@ namespace codeSignal
 
             //Console.WriteLine(3/9);
 
-            Console.WriteLine(TheCore.seatsInTheater(13,6,8,3));
+           // Console.WriteLine(TheCore.seatsInTheater(13,6,8,3));
 
-            Console.WriteLine(TheCore.seatsInTheater(13,6,8,3));
+            Console.WriteLine(TheCore.circleOfNumbers(10,7));
 
 
             Console.ReadLine();
