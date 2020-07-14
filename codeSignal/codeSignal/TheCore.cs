@@ -13,5 +13,12 @@ namespace codeSignal
         {
             return (int)((Math.Pow(10 , n )) - 1);
         }
+
+
+        public int seatsInTheater(int nCols, int nRows, int col, int row)
+        {
+            return (nCols - col + 1) * (nRows - row);
+        }
+
     }
 }
