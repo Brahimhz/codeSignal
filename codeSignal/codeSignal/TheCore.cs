@@ -11,7 +11,7 @@ namespace codeSignal
 
         public int largestNumber(int n)
         {
-            return (int)((Math.Pow(10 , n )) - 1);
+            return (int)((Math.Pow(10, n)) - 1);
         }
 
 
@@ -22,9 +22,12 @@ namespace codeSignal
 
         public int circleOfNumbers(int n, int firstNumber)
         {
-            return ((n / 2) + firstNumber >= n) ? ((n / 2) + firstNumber)-n : (n / 2) + firstNumber;
+            return ((n / 2) + firstNumber >= n) ? ((n / 2) + firstNumber) - n : (n / 2) + firstNumber;
         }
 
-
+        public int lateRide(int n)
+        {
+            return ((n / 60) / 10) + ((n / 60) % 10) + ((n % 60) / 10) + ((n % 60) % 10);
+        }
     }
 }
