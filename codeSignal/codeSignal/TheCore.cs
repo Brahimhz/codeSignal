@@ -122,5 +122,14 @@ namespace codeSignal
             return l[1] == 7 && l[0] == 5 || l[1] == 7 && l[0] == 6 || l[1] == 6 && l[0] <= 4;
         }
 
+        public bool willYou(bool young, bool beautiful, bool loved)
+        {
+            return (young && beautiful) != loved;
+        }
+        int[] metroCard(int lastNumberOfDays)
+        {
+            return (lastNumberOfDays < 31) ? new int[] { 31 } : new int[] { 28, 30, 31 };
+        }
+
     }
 }
