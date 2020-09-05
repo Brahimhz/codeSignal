@@ -31,7 +31,9 @@ namespace codeSignal
           
             //Console.WriteLine(TheCore.isInfiniteProcess(2,3));
             
-            Console.WriteLine(TheCore.arithmeticExpression(8,3,2));
+            //Console.WriteLine(TheCore.arithmeticExpression(8,3,2));
+           
+            Console.WriteLine(TheCore.tennisSet(8,3));
 
 
             Console.ReadLine();

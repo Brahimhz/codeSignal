@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq.Expressions;
+using System.Collections.Generic;
 
 namespace codeSignal
 {
@@ -112,10 +112,15 @@ namespace codeSignal
 
         public bool arithmeticExpression(int a, int b, int c)
         {
-            return (a + b == c || a - b == c || a * b == c || (a / b == c && a%b ==0 )) ? true : false;
+            return (a + b == c || a - b == c || a * b == c || (a / b == c && a % b == 0)) ? true : false;
         }
 
+        public bool tennisSet(int score1, int score2)
+        {
+            var l = new List<int>(); l.Add(score1); l.Add(score2); l.Sort();
 
+            return l[1] == 7 && l[0] == 5 || l[1] == 7 && l[0] == 6 || l[1] == 6 && l[0] <= 4;
+        }
 
     }
 }
