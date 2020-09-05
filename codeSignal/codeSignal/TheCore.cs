@@ -104,5 +104,11 @@ namespace codeSignal
             return (a != b) ? ((a == c) ? b : a) : c;
         }
 
+        public bool isInfiniteProcess(int a, int b)
+        {
+            return b - a < 0 || (b - a) % 2 != 0;
+        }
+
+
     }
 }

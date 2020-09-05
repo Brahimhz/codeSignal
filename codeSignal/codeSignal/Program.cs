@@ -27,7 +27,10 @@ namespace codeSignal
 
             //Console.WriteLine(TheCore.KnapsackLight(10, 5, 6, 4, 8));
 
-            Console.WriteLine(TheCore.extraNumber(2, 7, 2));
+            //Console.WriteLine(TheCore.extraNumber(2, 7, 2));
+          
+            Console.WriteLine(TheCore.isInfiniteProcess(2,3));
+
 
             Console.ReadLine();
 
