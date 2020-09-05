@@ -23,7 +23,9 @@ namespace codeSignal
 
             //Console.WriteLine(TheCore.phoneCall(1,2,1,6));
 
-            Console.WriteLine(TheCore.reachNextLevel(16, 23, 16));
+            //Console.WriteLine(TheCore.reachNextLevel(16, 23, 16));
+
+            Console.WriteLine(TheCore.KnapsackLight(10, 5, 6, 4, 8));
 
             Console.ReadLine();
 
