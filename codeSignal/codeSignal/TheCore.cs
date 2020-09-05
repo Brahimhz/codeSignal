@@ -99,5 +99,10 @@ namespace codeSignal
             return 0;
         }
 
+        public int extraNumber(int a, int b, int c)
+        {
+            return (a != b) ? ((a == c) ? b : a) : c;
+        }
+
     }
 }

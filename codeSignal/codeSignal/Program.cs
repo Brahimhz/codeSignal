@@ -25,7 +25,9 @@ namespace codeSignal
 
             //Console.WriteLine(TheCore.reachNextLevel(16, 23, 16));
 
-            Console.WriteLine(TheCore.KnapsackLight(10, 5, 6, 4, 8));
+            //Console.WriteLine(TheCore.KnapsackLight(10, 5, 6, 4, 8));
+
+            Console.WriteLine(TheCore.extraNumber(2, 7, 2));
 
             Console.ReadLine();
 
