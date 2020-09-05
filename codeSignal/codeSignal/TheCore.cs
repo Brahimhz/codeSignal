@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 
 namespace codeSignal
 {
@@ -108,6 +109,12 @@ namespace codeSignal
         {
             return b - a < 0 || (b - a) % 2 != 0;
         }
+
+        public bool arithmeticExpression(int a, int b, int c)
+        {
+            return (a + b == c || a - b == c || a * b == c || (a / b == c && a%b ==0 )) ? true : false;
+        }
+
 
 
     }

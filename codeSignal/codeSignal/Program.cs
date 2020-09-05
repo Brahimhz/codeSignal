@@ -29,7 +29,9 @@ namespace codeSignal
 
             //Console.WriteLine(TheCore.extraNumber(2, 7, 2));
           
-            Console.WriteLine(TheCore.isInfiniteProcess(2,3));
+            //Console.WriteLine(TheCore.isInfiniteProcess(2,3));
+            
+            Console.WriteLine(TheCore.arithmeticExpression(8,3,2));
 
 
             Console.ReadLine();
