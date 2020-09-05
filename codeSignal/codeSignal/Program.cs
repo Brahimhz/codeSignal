@@ -21,7 +21,9 @@ namespace codeSignal
 
             //Console.WriteLine(TheCore.lateRide(808));
 
-            Console.WriteLine(TheCore.phoneCall(1,2,1,6));
+            //Console.WriteLine(TheCore.phoneCall(1,2,1,6));
+
+            Console.WriteLine(TheCore.reachNextLevel(16, 23, 16));
 
             Console.ReadLine();
 

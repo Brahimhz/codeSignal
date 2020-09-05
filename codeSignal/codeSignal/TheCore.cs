@@ -58,15 +58,21 @@ namespace codeSignal
                     }
                 }
 
-               if (s < min11 || nbrMin <= 9)
-                        return count;
+                if (s < min11 || nbrMin <= 9)
+                    return count;
                 else
-                 {
-                        count += s / min11;
-                        return count;
-                 }
-                
+                {
+                    count += s / min11;
+                    return count;
+                }
+
             }
         }
+
+        public bool reachNextLevel(int experience, int threshold, int reward)
+        {
+            return (threshold <= (experience + reward)) ? true : false;
+        }
+
     }
 }
